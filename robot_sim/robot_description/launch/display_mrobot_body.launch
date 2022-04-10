@@ -1,0 +1,13 @@
+<launch>
+	<param name="robot_description" textfile="$(find robot_description)/urdf/mrobot_body.urdf"/>
+
+	<param name="use_gui" value="true"/>
+	<!--发布关节状态-->
+	<node name="joint_state_publisher_gui" pkg="joint_state_publisher_gui" type="joint_state_publisher_gui"/>
+	<!--发布TF-->
+	<node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"/>
+
+	<node name="rviz" pkg="rviz" type="rviz" args="-d $(find robot_description)/config/mrobot_urdf.rviz" required="true"/>
+</launch>
+
+

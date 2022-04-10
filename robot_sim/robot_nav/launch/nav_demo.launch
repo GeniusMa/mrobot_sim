@@ -1,0 +1,9 @@
+<launch>
+	<param name="use_sim_time" value="false"/>
+	<arg name="map" default="map.yaml"/>
+	<node name="map_server" pkg="map_server" type="map_server" args="$(find robot_nav)/maps/$(arg map)"/>
+	<include file="$(find robot_nav)/launch/move_base.launch"/>
+	<node name="fake_localization" pkg="fake_localization" type="fake_localization" output="screen"/>
+	<node pkg="tf" type="static_transform_publisher" name="map_odom_broadcaster" args="0 0 0 0 0 0 /map /odom 100"/>
+	<node name="rviz" pkg="rviz" type="rviz" args="-d $(find robot_nav)/rviz/nav.rviz"/>
+</launch>

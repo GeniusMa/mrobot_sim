@@ -1,0 +1,9 @@
+<launch>
+
+	<include file="$(find robot_slam)/launch/mrobot_gazebo.launch"/>
+	<include file="$(find robot_slam)/launch/gmapping.launch"/>
+
+	<node pkg="rviz" type="rviz" name="rviz" args="-d $(find robot_slam)/rviz/gmapping.rviz"/>
+</launch>
+
+

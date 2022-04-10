@@ -1,0 +1,4 @@
+<launch>
+	<include file="$(find robot_nav)/launch/fake_mrobot_with_camera_laser.launch"/>
+	<include file="$(find robot_nav)/launch/nav_demo.launch"/>
+</launch>
